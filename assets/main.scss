@@ -3,7 +3,6 @@
 @import "minima";
 
 body {
-  /* 确保这里是你新上传的浅色背景图 */
   background-image: url('/assets/images/bg.jpg'); 
   background-size: cover;
   background-attachment: fixed;
@@ -11,30 +10,44 @@ body {
   background-color: #f5f5f5; 
 }
 
-/* 核心：将所有容器拉宽并居中 */
-.wrapper {
-  max-width: 1000px !important; /* 拉宽文字显示区域，1000px 是比较舒适的大屏宽度 */
-  margin-right: auto !important;
-  margin-left: auto !important;
-  padding-right: 40px !important;
-  padding-left: 40px !important;
-}
-
-/* 彻底去除所有背景色、边框和阴影，实现一体感 */
-.site-header, .page-content, .site-footer, .site-nav, .post-content {
+/* 关键修改：强制让所有可能的层级背景全部透明 */
+.site-header, 
+.page-content, 
+.site-footer, 
+.wrapper,
+main.page-content {  /* 增加对 main 标签的锁定 */
+  background: none !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* 强制文字为黑色，增强在浅色背景上的纸墨感 */
-body, .site-title, .post-title, .post-content p, .post-content li {
-  color: #111111 !important; /* 使用接近纯黑的颜色 */
-  text-align: justify;       /* 两端对齐，让排版更整齐 */
+/* 调整宽度并居中 */
+.wrapper {
+  max-width: 1000px !important; 
+  margin: 0 auto !important;
+  padding: 0 40px !important;
 }
 
-/* 调整标题居中（可选） */
-.post-title, .post-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* 确保所有文字颜色一致，实现纸墨感 */
+body, 
+.site-title, 
+.post-title, 
+.post-content p, 
+.post-content li,
+.post-list > li > h3 > a { /* 针对首页列表标题的黑色设置 */
+  color: #111111 !important; 
+  text-decoration: none !important; /* 去掉链接下划线，更像纸张 */
+}
+
+/* 让导航栏也变透明并颜色一致 */
+.site-nav {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* 针对正文的精细排版 */
+.post-content {
+  text-align: justify;
+  line-height: 1.8; /* 增加行间距，阅读更舒适 */
 }
