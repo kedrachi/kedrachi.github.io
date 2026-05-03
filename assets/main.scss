@@ -2,52 +2,43 @@
 ---
 @import "minima";
 
+// 1. 背景设置
 body {
-  background-image: url('/assets/images/bg.jpg'); 
+  background: url('/assets/images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
   background-color: #f5f5f5; 
+  color: #111 !important; // 基础文字设为黑色
 }
 
-/* 关键修改：强制让所有可能的层级背景全部透明 */
-.site-header, 
-.page-content, 
-.site-footer, 
-.wrapper,
-main.page-content {  /* 增加对 main 标签的锁定 */
-  background: none !important;
+// 2. 彻底透明化容器与表格 (解决白条的核心)
+// 包含 table, tr, td 确保彻底杀掉主题自带的表格背景
+.site-header, .page-content, .site-footer, .wrapper, main,
+table, tr, td, th {
+  background: transparent !important;
   background-color: transparent !important;
-  border: none !important;
+  border-color: #333 !important; // 表格边框设为深灰，保持纸墨感
   box-shadow: none !important;
 }
 
-/* 调整宽度并居中 */
+// 3. 宽度拉宽与居中
 .wrapper {
-  max-width: 1000px !important; 
+  max-width: 1000px !important;
   margin: 0 auto !important;
-  padding: 0 40px !important;
+  padding: 0 30px !important;
 }
 
-/* 确保所有文字颜色一致，实现纸墨感 */
-body, 
-.site-title, 
-.post-title, 
-.post-content p, 
-.post-content li,
-.post-list > li > h3 > a { /* 针对首页列表标题的黑色设置 */
-  color: #111111 !important; 
-  text-decoration: none !important; /* 去掉链接下划线，更像纸张 */
+// 4. 文字颜色与排版优化
+h1, h2, h3, h4, p, li, a {
+  color: #111 !important;
+  text-decoration: none !important;
 }
 
-/* 让导航栏也变透明并颜色一致 */
-.site-nav {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-/* 针对正文的精细排版 */
 .post-content {
-  text-align: justify;
-  line-height: 1.8; /* 增加行间距，阅读更舒适 */
+  text-align: justify; // 两端对齐
+  line-height: 1.8;    // 舒适行间距
+}
+
+// 5. 隐藏多余边线 (Minima主题常在页头页脚带线)
+.site-header, .site-footer {
+  border: none !important;
 }
