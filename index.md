@@ -2,17 +2,6 @@
 layout: default
 ---
 
-# 文章列表
-
-<ul>
-  {% for post in site.posts %}
-    <li style="list-style: none; margin-bottom: 20px;">
-      <span style="color: #666;">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; 
-      <a href="{{ post.url }}" style="color: #111; font-size: 1.2em; text-decoration: none; font-weight: bold;">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
 <div style="text-align: center; padding: 80px 0 100px 0;">
   <h1 style="font-size: 2.2em; font-weight: bold; color: #111; margin-bottom: 20px;">
     “那些疯狂到以为自己能够改变世界的人，才能真正改变世界。”
