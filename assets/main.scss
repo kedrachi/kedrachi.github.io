@@ -42,3 +42,16 @@ h1, h2, h3, h4, p, li, a {
 .site-header, .site-footer {
   border: none !important;
 }
+
+// 隐藏旧文字，替换为自己的文字
+.footer-col-wrapper {
+  display: none !important; 
+}
+
+.site-footer .wrapper::after {
+  content: "Chvily出品";
+  display: block;
+  text-align: center;
+  color: #111; // 确保是黑色，符合纸墨感
+  padding: 20px 0;
+}
