@@ -3,17 +3,16 @@
 @import "minima";
 
 body {
-  /* 设置全屏固定背景图 */
   background-image: url('/assets/images/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
 }
 
-/* 给头部、正文、底部加上半透明白色底板，保护阅读体验 */
 .site-header, .page-content, .site-footer {
   background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 8px; /* 加一点点圆角更好看 */
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin: 20px auto; 
+  max-width: 700px; /* 稍微缩小文字区域的宽度，让两侧露出更多玫瑰 */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 加一点阴影增加立体感 */
 }
